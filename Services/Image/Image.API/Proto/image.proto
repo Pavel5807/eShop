@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcImage";
+
+package ImageApi;
+
+service ImageRepositoryManager
+{
+    rpc Delete (DeleteImageRequest) returns (Void);
+    rpc Upload (stream UploadImageRequest) returns (UploadImageResponse);
+}
+
+message DeleteImageRequest
+{
+    string name = 1;
+}
+
+message Void
+{
+
+}
+
+message UploadImageRequest
+{
+    Metadata metadata = 1;
+    bytes data = 2;
+}
+
+message UploadImageResponse
+{
+    string id = 1;
+}
+
+message Metadata
+{
+    string name = 1;
+}
