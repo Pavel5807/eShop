@@ -1,0 +1,22 @@
+@model eShop.Services.Identity.API.Models.AccountViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <input asp-for="Email" type="email"/>
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <input asp-for="Password" type="password"/>
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <input asp-for="RememberMe" type="checkbox"/>
+        <span asp-validation-for="RememberMe"></span>
+    </div>
+    <button type="submit">Login</button>
+</form>
